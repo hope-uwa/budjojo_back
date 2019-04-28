@@ -1,0 +1,50 @@
+{
+  "name": "budjojo",
+  "version": "1.0.0",
+  "description": "backend for a mini budget app",
+  "main": "app.js",
+  "scripts": {
+    "build": "babel src -d dist --source-maps",
+    "serve": "NODE_ENV=production node dist/index.js",
+    "start": "NODE_ENV=development babel-node src/index.js",
+    "dev": "DEBUG=server:debug NODE_ENV=development nodemon src/index.js --exec babel-node",
+    "test": "DEBUG=server:debug NODE_ENV=test mocha --require babel-core/register --reporter spec --exit   tests/ --exec babel-node",
+    "test:watch": "DEBUG=server:debug NODE_ENV=development mocha  --require babel-core/register --watch --reporter  spec   tests/ --exec babel-node",
+    "eslint": "eslint src/**/*.js --ignore-pattern \"node_modules/\"",
+    "migrations": "babel-node ./src/db/migrations"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uwaelpis/budjojo_back.git"
+  },
+  "author": "Hope Uwa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uwaelpis/budjojo_back/issues"
+  },
+  "homepage": "https://github.com/uwaelpis/budjojo_back#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.3",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.10"
+  }
+}
